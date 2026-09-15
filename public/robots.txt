@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aarav-creative-portfolio.bouncy-snow-9184.chatgpt.site/sitemap.xml
