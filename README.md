@@ -1,4 +1,4 @@
-# Aarav Sharma - Developer Portfolio
+# Janit Berwal - Developer Portfolio
 
 React / Vinext (Vite with the Next.js App Router), TypeScript, and Tailwind.
 
@@ -7,13 +7,13 @@ React / Vinext (Vite with the Next.js App Router), TypeScript, and Tailwind.
 Requires Node 22.13+ and npm. Run `npm install`, then `npm run dev`.
 Build with `npm run build`. The Sites build creates a Cloudflare-compatible Worker.
 
-## Personalize before sharing
+## Portfolio content
 
 - `components/portfolio/content.ts`: name, university, contact links, project content, and public `.splinecode` scene URL.
-- `public/resume.pdf`: replace this clearly labeled sample with your real resume.
-- `app/page.tsx`: sample timeline, availability, and bio. Sample results are not verified achievements.
+- `public/resume.pdf`: the original resume supplied by Janit, copied without modifications.
+- `app/page.tsx`: resume-backed timeline, biography, and achievements.
 - `app/layout.tsx`, `public/sitemap.xml`, `public/robots.txt`: update identity and canonical domain if hosting elsewhere.
-- Put real project demo/repository URLs in content.ts. Missing URLs explain that setup is needed instead of linking to another person's account.
+- Project and profile links come from the supplied PDF. Unavailable project links are omitted.
 
 ## Contact delivery
 
@@ -26,7 +26,7 @@ The POST /api/contact endpoint validates name/email/message, limits request size
 - Babylon.js mounts only near its section, stops work offscreen, disposes resources on exit, and uses a static constellation on mobile or with reduced motion.
 - GSAP reveals content and pins the timeline heading on desktop. Lenis shares GSAP's ticker; cleanup removes animations and listeners.
 - Framer Motion handles dialogs and hover feedback. Motion One updates the navbar shadow.
-- CSS animated project illustrations serve as self-contained previews; replace them with real recordings when available. No sample project videos are supplied.
+- CSS animated project illustrations serve as self-contained previews; replace them with real recordings when available. No project videos are supplied.
 - Set NEXT_PUBLIC_PLAUSIBLE_DOMAIN to enable the optional privacy-friendly analytics hook.
 
 ## Validation
