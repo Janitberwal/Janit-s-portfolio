@@ -1,7 +1,19 @@
 'use client';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { MeshDistortMaterial } from '@react-three/drei';
-import { useRef } from 'react';
-import type { Mesh } from 'three';
-function Sculpture({reduced}:{reduced:boolean}){const mesh=useRef<Mesh>(null);useFrame(({pointer})=>{if(mesh.current&&!reduced){mesh.current.rotation.x+=(pointer.y*.2+.45-mesh.current.rotation.x)*.04;mesh.current.rotation.y+=(pointer.x*.4-.35-mesh.current.rotation.y)*.04}});return <mesh ref={mesh} rotation={[.45,-.35,-.45]}><torusKnotGeometry args={[1.35,.45,144,20,2,3]}/><MeshDistortMaterial color="#b6a0ef" metalness={.65} roughness={.24} distort={reduced?0:.12} speed={reduced?0:1.1}/></mesh>}
-export default function HeroScene({reduced=false}:{reduced?:boolean}){return <Canvas camera={{position:[0,0,6.3],fov:40}} dpr={[1,1.5]} frameloop={reduced?'demand':'always'} gl={{antialias:true,alpha:true,powerPreference:'low-power'}}><ambientLight intensity={1.4}/><directionalLight position={[3,4,4]} intensity={5} color="#eee0ff"/><pointLight position={[-3,-2,2]} intensity={25} color="#6665ff"/><directionalLight position={[-3,2,-2]} intensity={4} color="#b7e7ff"/><Sculpture reduced={reduced}/></Canvas>}
+
+// A lightweight, resolution-independent binary-search illustration.
+export default function HeroScene() {
+  const nodes = [[200,76,'32'],[110,166,'16'],[290,166,'48'],[60,260,'08'],[155,260,'24'],[245,260,'40'],[340,260,'56']] as const;
+  const edges = [[0,1],[0,2],[1,3],[1,4],[2,5],[2,6]];
+  return <svg viewBox="0 0 400 360" fill="none" aria-hidden="true" style={{width:'100%',height:'100%',overflow:'visible'}}>
+    <g stroke="var(--border)" strokeWidth="1"><path d="M20 76H380M20 166H380M20 260H380" strokeDasharray="2 9"/></g>
+    <g stroke="var(--muted-foreground)" strokeOpacity=".35" strokeWidth="1.5">{edges.map(([a,b])=><path key={`${a}-${b}`} d={`M${nodes[a][0]} ${nodes[a][1]}L${nodes[b][0]} ${nodes[b][1]}`}/>)}</g>
+    <path d="M200 76L110 166L155 260" stroke="var(--accent)" strokeWidth="2"/>
+    {nodes.map(([x,y,value],i)=><g key={value}>
+      {i===4&&<circle cx={x} cy={y} r="32" stroke="var(--accent)" strokeOpacity=".25"/>}
+      <circle cx={x} cy={y} r="23" fill="var(--background)" stroke={i===0||i===1||i===4?'var(--accent)':'var(--border)'} strokeWidth="1.5"/>
+      <text x={x} y={y+5} textAnchor="middle" fill={i===4?'var(--accent)':'var(--muted-foreground)'} fontFamily="monospace" fontSize="14">{value}</text>
+    </g>)}
+    <text x="200" y="327" textAnchor="middle" fill="var(--muted-foreground)" fontFamily="monospace" fontSize="10" letterSpacing="2">BINARY SEARCH / O(log n)</text>
+  </svg>;
+}
+

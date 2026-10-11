@@ -1,0 +1,17 @@
+.contact{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,7vw,110px);align-items:center}
+.intro h2{font-size:clamp(42px,5vw,72px);line-height:1.08;letter-spacing:-2px;margin:25px 0}
+.intro p{font:400 16px/1.8 Inter,Arial,sans-serif;color:var(--muted-foreground)}
+.resume{display:inline-flex;align-items:center;gap:10px;font:400 14px Inter,Arial,sans-serif;margin-top:28px;padding:12px 0;border-bottom:1px solid var(--accent);color:var(--accent)}
+.links{display:grid;gap:12px;min-width:0}
+.link{display:flex;align-items:center;gap:20px;padding:26px 24px;border:1px solid var(--border);border-radius:14px;background:var(--card);color:var(--foreground);text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
+.link:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 8px 24px #293b2510}
+.link:focus-visible,.resume:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.icon{width:50px;height:50px;flex:0 0 50px;display:grid;place-items:center;background:var(--background);border:1px solid var(--border);border-radius:50%;color:var(--accent)}
+.details{display:grid;gap:7px;min-width:0}.label{font:500 21px/1.2 'Space Grotesk',Arial,sans-serif;letter-spacing:-.3px}.value{font:400 14px/1.6 Inter,Arial,sans-serif;color:var(--muted-foreground);overflow-wrap:anywhere}.arrow{margin-left:auto;flex-shrink:0;color:var(--accent);transition:transform .2s}.link:hover .arrow{transform:translate(2px,-2px)}
+@media(max-width:800px){.contact{grid-template-columns:1fr;gap:35px}.intro h2{font-size:46px}.link{padding:22px 18px;gap:16px}.label{font-size:20px}.value{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.link,.arrow{transition:none}.link:hover,.link:hover .arrow{transform:none}}
+.link:nth-child(1){background:var(--sage-surface)}
+.link:nth-child(2){background:var(--clay-surface)}
+.link:nth-child(3){background:var(--blue-surface)}
+.link:nth-child(2) .icon,.link:nth-child(2) .arrow{color:var(--clay-ink)}
+.link:nth-child(3) .icon,.link:nth-child(3) .arrow{color:var(--blue-ink)}
